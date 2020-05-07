@@ -16,10 +16,10 @@ def db_init():
         db_init_queries =[]
         if app.config['TESTING']:
             db_init_queries = drop_tables() + create_tables()
-            print("*** Creating test database tables ...")
+            print("*** Creating test database tables *** ")
         else:
             db_init_queries = create_tables()
-            print("*** Creating production database tables ....")
+            print("*** Creating production database tables *** ")
         i = 0
         while i != len(db_init_queries):
             query = db_init_queries[i]
@@ -27,6 +27,7 @@ def db_init():
             konnection.commit()
             i += 1
         createAdmin()
+        print("*** Database tables are ready ***")
         konnection.close()
     except Exception as error:
         print("We got an error of ->:{} @method db_init".format(error))
@@ -62,7 +63,7 @@ def create_tables():
         totalRecoveries INTEGER NOT NULL,
         activeCases INTEGER NOT NULL,
         dateOf varchar(255) NOT NULL,
-        FOREIGN KEY (country_id) REFERENCES country(country_id) ON DELETE CASCADE
+        FOREIGN KEY (countryId) REFERENCES country(countryId) ON DELETE CASCADE
     )"""
 
     return [create_users_table,create_country_table,create_cases_table]
@@ -108,14 +109,14 @@ def createAdmin():
 
     isAdmin = handle_select_queries(select_user_by_email)
     if not isAdmin:
-        konnection,kursor = db_connection(query)
+        konnection,kursor = db_connection()
         password = generate_password_hash('Banuit*123')
         create_admin_if_not_present = """
         INSERT INTO users(username,email, password)
         VALUES('{}', '{}', '{}')""".format('Admin','kabaki.antony@gmail.com', password)
-        cursor.execute(create_admin_if_not_present)
-        conn.commit()
-        conn.close()
+        kursor.execute(create_admin_if_not_present)
+        konnection.commit()
+        konnection.close()
 
 
 def handle_other_queries(query,isquery=False):

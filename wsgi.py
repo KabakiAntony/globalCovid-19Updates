@@ -1,6 +1,7 @@
 from app import create_app
 
-app = create_app()
+the_configuration = "production"
+app = create_app(the_configuration)
 
 @app.route("/")
 def home():
