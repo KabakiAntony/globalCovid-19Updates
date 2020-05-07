@@ -4,11 +4,12 @@ It is a REST API that gives daily updates for consumption by people who
 are looking to make apps that give users the daily numbers as we 
 track the corona virus figures aroung the world.
 
-This api is made based on flask framework.
+This api is made based on flask framework, it will be hosted on heroku and a postgres db
+will be used for persistence.
 
 ## Where am I getting data from ?
 
-At this point I am getting data and filtering it for our use from 
+At this point I am getting data and filtering it for use from 
 the repository that is being maintained by the [John Hopkins University](https://github.com/CSSEGISandData/COVID-19)
 
 
