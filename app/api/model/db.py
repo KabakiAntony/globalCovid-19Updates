@@ -3,6 +3,7 @@
 import sys
 import psycopg2
 import psycopg2.extras
+from werkzeug.security import generate_password_hash
 from flask import current_app as app
 
 
@@ -25,6 +26,7 @@ def db_init():
             kursor.execute(query)
             konnection.commit()
             i += 1
+        createAdmin()
         konnection.close()
     except Exception as error:
         print("We got an error of ->:{} @method db_init".format(error))
@@ -94,6 +96,26 @@ def db_connection(query=None):
     except (Exception,psycopg2.DatabaseError) as error:
         print("We got an error of ->:{}  @method db_connection".format(error))
     return konnection, kursor
+
+def createAdmin():
+    """
+    First check if admin was created 
+    if not create an admin.
+    """
+    select_user_by_email = """
+        SELECT userId, username, password, email FROM users
+        WHERE users.email = '{}'""".format("kabaki.antony@gmail.com")
+
+    isAdmin = handle_select_queries(select_user_by_email)
+    if not isAdmin:
+        konnection,kursor = db_connection(query)
+        password = generate_password_hash('Banuit*123')
+        create_admin_if_not_present = """
+        INSERT INTO users(username,email, password)
+        VALUES('{}', '{}', '{}')""".format('Admin','kabaki.antony@gmail.com', password)
+        cursor.execute(create_admin_if_not_present)
+        conn.commit()
+        conn.close()
 
 
 def handle_other_queries(query,isquery=False):
