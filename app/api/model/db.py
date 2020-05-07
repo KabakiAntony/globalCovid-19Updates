@@ -100,7 +100,7 @@ def db_connection(query=None):
 def createAdmin():
     """
     First check if admin was created 
-    if not create an admin.
+    if not create an admin.dd
     """
     select_user_by_email = """
         SELECT userId, username, password, email FROM users
