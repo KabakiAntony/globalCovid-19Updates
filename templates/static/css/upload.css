@@ -1,0 +1,38 @@
+.holder{
+    background-color: rgba(0, 0, 0, 0.76);
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 3rem;
+    border-radius: 5px;
+    padding:1.2rem;
+}
+#myFile{
+    background-color:rgba(64, 87, 163, 0.561); 
+    padding: 1.2rem;
+    width: 70%;
+    font-weight: 400;
+    border-radius: 5px;
+    color:white;
+    font: inherit;
+}
+#submit,#countrySubmit{
+    padding:0.6rem;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    background-color: rgba(42, 121, 10, 0.76);
+    border: none;
+    color:rgb(255, 255, 255);
+    font:inherit;
+}
+#submit:hover{
+    color:rgb(0, 0, 0);
+    background-color: rgba(121, 117, 117, 0.87);
+    cursor: pointer;
+}
+.label{
+    width: 85%;
+    color: white;
+    text-align: left;
+    margin:15px auto 0 auto;
+    
+}

@@ -1,0 +1,44 @@
+.login{
+    border-radius: 5px;
+    padding: 1.5rem;
+    width: 400px;
+    margin:0 auto;
+    margin-top: 3rem;
+    background-color: rgba(0, 0, 0, 0.76);
+    text-align: left;
+}
+.form-header{
+    padding: 1.2rem;
+    margin:0;
+    padding-top: 0;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+}
+input{
+    margin: 10px 0;
+    padding:8px;
+    width:100%;
+    font-weight: 700;
+    font: inherit;
+}
+label{
+    margin-bottom: 0; 
+    color:rgb(255, 255, 255);
+}
+#submit{
+    width:100%;
+    padding:10px;
+    border-radius: 8px;
+    font-size: 120%;
+    margin-top:20px;
+    background-color: rgba(42, 121, 10, 0.76);
+    border: none;
+    color:rgb(255, 255, 255);
+}
+#submit:hover{
+    color:rgb(0, 0, 0);
+    background-color: rgba(121, 117, 117, 0.87);
+    cursor: pointer;
+}
