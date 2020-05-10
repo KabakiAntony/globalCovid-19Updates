@@ -50,13 +50,14 @@ def create_tables():
     CREATE TABLE IF NOT EXISTS country
     (
         countryId SERIAL PRIMARY KEY,
-        country varchar(255) NOT NULL UNIQUE,
+        countryName varchar(255) NOT NULL UNIQUE,
         country_code varchar(3) NOT NULL UNIQUE
     )"""
 
     create_cases_table ="""
     CREATE TABLE IF NOT EXISTS cases
     (
+        caseId SERIAL PRIMARY KEY,
         countryId INTEGER,
         confirmedCases INTEGER NOT NULL,
         totalDeaths INTEGER NOT NULL,
