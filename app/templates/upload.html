@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Covid-19 Updates</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/gif" sizes="16x16">
     <link href="https://fonts.googleapis.com/css?family=Spartan&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./static/css/main.css">
-    <link rel="stylesheet" href="./static/css/upload.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/upload.css') }}">
+    <script src="{{ url_for('static', filename='js/upload.js')}}"></script>
 </head>
 <body>
     <div id="container">
