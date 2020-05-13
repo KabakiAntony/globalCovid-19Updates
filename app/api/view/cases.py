@@ -10,17 +10,25 @@ from app.api.model.cases import Cases
 # @token_required
 def upload_cases():
     """Here the admin updates the cases table"""
+    return "I expect to recieve a csv file"
     # try:
     #     email = user[0][1]
     #     if email == "kabaki.antony@gmail.com":
     # except:
     #     return make_response(jsonify({"Error":"Only the admin that can post updates"}),401)
-    try:
-        case_load_data = request.get_json()
-        print(case_load_data)  
-        # content = post_data["content"]
-        # new_post = Lists(content=content,user_id=user_id)
-        # post_id = new_post.create_post_item()
-        # return override_make_response("Data",[{"content":content,"post_id":post_id}],201)
-    except psycopg2.DatabaseError as error:
-        return make_response(jsonify({"error":"an error occured"}),400)
+    # try:
+    #     case_load_data = request.get_json()
+    #     countryId = case_load_data["countryId"]
+    #     confirmedCases = case_load_data["confirmedCases"]
+    #     totalDeaths = case_load_data["totalDeaths"]
+    #     totalRecoveries = case_load_data["totalRecoveries"]
+    #     activeCases = case_load_data["activeCases"]
+    #     deathOf = case_load_data["deathOf"]
+    #     new_case_update = Cases(\
+    #         countryId = countryId,confirmedCases = confirmedCases,\
+    #         totalDeaths = totalDeaths,totalRecoveries = totalRecoveries,\
+    #         activeCases = activeCases,dateOf = dateOf)
+    #     caseId = new_case_update.create_case()
+    #     return make_response(jsonify({}),201)
+    # except psycopg2.DatabaseError as error:
+        
