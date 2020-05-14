@@ -8,26 +8,27 @@
     <link href="https://fonts.googleapis.com/css?family=Spartan&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/upload.css') }}">
-    <script src="{{ url_for('static', filename='js/upload.js')}}"></script>
 </head>
 <body>
     <div id="container">
         <header>Global Covid-19 Updates</header>   
         <div class="holder" id="holder-container">
-            
-            <form action="/">
-                <div class="label"><label>Upload country data here should happen only once.</label></div>
-                <input type="file" id="myFile" name="filename">
-                <input id="submit" type="submit" value="Save countries">
+            <div class="label"><label>Upload country data here should happen only once.</label></div>
+            <form id="country-data" method="POST">
+                <input type="file" id="country-file" name="countryFile" required>
+                <input id="countrySubmit" type="submit" value="Save countries">
+                <div id="country-upload-feedback"></div>
               </form>
-              
-              <form action="/">
-                <div class="label"><label>Update the daily caseload here.</label></div>
-                <input type="file" id="myFile" name="filename">
-                <input id="countrySubmit" type="submit" value="Update   cases">
+
+              <div class="label"><label>Update the daily caseload here   (cases.csv)</label></div>
+              <form id="cases-data" method="POST">
+                <input type="file" id="caseFile" name="caseFile" required/>
+                <input id="casesSubmit" type="submit" value="Update  cases">
               </form>
+              <div id="cases-upload-feedback"></div>
         </div>
         <footer>&copy;  2020 <a href="https://twitter.com/kabakikiarie">Kabaki Antony</a></footer>
     </div>
+    <script src="{{ url_for('static', filename='js/upload.js')}}"></script>
 </body>
 </html>

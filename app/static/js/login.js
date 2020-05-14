@@ -22,6 +22,7 @@ function login(signInData){
 .then(response => response.json())
 .then(({data,status,error}) => {
     if (status === 200){
+        localStorage.setItem('user',data);
         callToast();
         location.href='/auth/admin/upload?in='+data;
     }
@@ -36,7 +37,7 @@ function login(signInData){
         cosole.log(error,status);
     }    
 })
-.catch(error => console.log(error));
+.catch(err => console.log(err));
 }
 function callToast() {
     var snackbar = document.getElementById("login-success");

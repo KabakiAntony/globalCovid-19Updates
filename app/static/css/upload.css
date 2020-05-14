@@ -6,16 +6,17 @@
     border-radius: 5px;
     padding:1.2rem;
 }
-#myFile{
+#country-data,#cases-data{
     background-color:rgba(64, 87, 163, 0.561); 
     padding: 1.2rem;
-    width: 70%;
+    width: 95%;
     font-weight: 400;
     border-radius: 5px;
     color:white;
     font: inherit;
+    margin:20px;
 }
-#submit,#countrySubmit{
+#casesSubmit, #countrySubmit{
     padding:0.6rem;
     border-radius: 5px;
     font-size: 1.2rem;
@@ -24,15 +25,23 @@
     color:rgb(255, 255, 255);
     font:inherit;
 }
-#submit:hover{
+#casesSubmit:hover{
+    color:rgb(0, 0, 0);
+    background-color: rgba(121, 117, 117, 0.87);
+    cursor: pointer;
+}
+#countrySubmit:hover{
     color:rgb(0, 0, 0);
     background-color: rgba(121, 117, 117, 0.87);
     cursor: pointer;
 }
 .label{
-    width: 85%;
+    width: 95%;
     color: white;
     text-align: left;
     margin:15px auto 0 auto;
     
+}
+#cases-upload-feedback{
+    color:white;
 }
