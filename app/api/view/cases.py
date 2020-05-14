@@ -3,14 +3,15 @@ import jwt
 import psycopg2
 from flask import request,abort,jsonify
 from app.api import globalUpdatesBlueprint
-from app.api.utils import token_required
+from app.api.utils import token_required,override_make_response
 from app.api.model.cases import Cases
 
-@globalUpdatesBlueprint.route('/global',methods=['POST'])
-# @token_required
-def upload_cases():
+@globalUpdatesBlueprint.route('/auth/admin/upload/cases',methods=['POST'])
+@token_required
+def upload_cases(user):
     """Here the admin updates the cases table"""
-    return "I expect to recieve a csv file"
+    receivedFile = request.files['csvFile']
+    return override_make_response("data",receivedFile.filename,200)
     # try:
     #     email = user[0][1]
     #     if email == "kabaki.antony@gmail.com":
