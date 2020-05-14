@@ -6,7 +6,7 @@
     border-radius: 5px;
     padding:1.2rem;
 }
-#country-data,#cases-data{
+#cases-data{
     background-color:rgba(64, 87, 163, 0.561); 
     padding: 1.2rem;
     width: 95%;
@@ -16,7 +16,7 @@
     font: inherit;
     margin:20px;
 }
-#casesSubmit, #countrySubmit{
+#casesSubmit{
     padding:0.6rem;
     border-radius: 5px;
     font-size: 1.2rem;
@@ -26,11 +26,6 @@
     font:inherit;
 }
 #casesSubmit:hover{
-    color:rgb(0, 0, 0);
-    background-color: rgba(121, 117, 117, 0.87);
-    cursor: pointer;
-}
-#countrySubmit:hover{
     color:rgb(0, 0, 0);
     background-color: rgba(121, 117, 117, 0.87);
     cursor: pointer;

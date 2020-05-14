@@ -21,20 +21,12 @@ casesForm.addEventListener('submit',(e)=>{
         }
         else if (status === 401)
         {
-            //document.getElementById('error').innerText = error;
-        }
-        else if(status === 404){
-            //document.getElementById('email-error').innerText = error;
+            document.getElementById('cases-upload-feedback').innerText = error;
         }
         else{
             console.log(error,status);
+            document.getElementById('cases-upload-feedback').innerText = error + status;
         }    
     })
-    .catch(err => console.log(err,'here is the error'));
-
-});
-//upload countries data to the db on submit
-countryForm.addEventListener('countrySubmit',(e)=>{
-    e.preventDefault();
-
+    .catch(err => console.log(err));
 });
