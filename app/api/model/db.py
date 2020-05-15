@@ -49,7 +49,6 @@ def create_tables():
     create_cases_table ="""
     CREATE TABLE IF NOT EXISTS cases
     (
-        caseId SERIAL PRIMARY KEY,
         countryName varchar(255) NOT NULL,
         confirmedCases INTEGER NOT NULL,
         totalDeaths INTEGER NOT NULL,

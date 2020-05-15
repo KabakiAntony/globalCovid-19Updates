@@ -17,7 +17,8 @@ casesForm.addEventListener('submit',(e)=>{
     .then(response => response.json())
     .then(({data,status,error}) => {
         if (status === 200){
-            document.getElementById('cases-upload-feedback').innerText = "File upload successful";
+            console.log(data);
+            document.getElementById('cases-upload-feedback').innerText = data;
         }
         else if (status === 401)
         {
@@ -25,7 +26,7 @@ casesForm.addEventListener('submit',(e)=>{
         }
         else{
             console.log(error,status);
-            document.getElementById('cases-upload-feedback').innerText = error + status;
+            document.getElementById('cases-upload-feedback').innerText = error;
         }    
     })
     .catch(err => console.log(err));
