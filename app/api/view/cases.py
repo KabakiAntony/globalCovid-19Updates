@@ -17,13 +17,13 @@ def upload_cases(user):
     email = user[0][1]
     if str(email) == "kabaki.antony@gmail.com":
         try:  
-            receivedFile = request.files['csvFile']
+            receivedFile = request.files['caseCsv']
             secureFilename = secure_filename(receivedFile.filename)
             receivedFile.save(os.path.join(secureFilename))
             print(secureFilename)
             feedback = Cases.create_case(secureFilename)
             return override_make_response("data",feedback,200)
-            
+
         except (Exception,psycopg2.DatabaseError) as error:
             return override_make_response("error","we got this error of  {} loading the file ".format(error),200)
 
