@@ -13,10 +13,15 @@
     <div id="container">
         <header>Global Covid-19 Updates</header>   
         <div class="holder" id="holder-container">
-              <div class="label"><label>Update the daily caseload here   (cases.csv)</label></div>
+              <div class="label"><label>Update the daily caseload here.</label></div>
               <form id="cases-data" method="POST">
                 <input type="file" id="caseFile" name="caseFile" required/>
                 <input id="casesSubmit" type="submit" value="Update  cases">
+              </form>
+              <div class="label"><label>Input the coutries info here.</label></div>
+              <form id="country-data" method="POST">
+                <input type="file" id="countryFile" name="countryFile" required/>
+                <input id="countrySubmit" type="submit" value="Input countries">
               </form>
               <div id="cases-upload-feedback"></div>
         </div>

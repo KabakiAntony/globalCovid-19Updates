@@ -1,14 +1,14 @@
 const casesForm = document.getElementById('cases-data');
 const countryForm = document.getElementById('country-data');
 const caseFile = document.getElementById('caseFile');
-const countryFile = document.getElementById('country-file');
+const countryFile = document.getElementById('countryFile');
 token = localStorage.getItem('user');
 
 casesForm.addEventListener('submit',(e)=>{
     e.preventDefault();
 
     const form_data = new FormData();
-    form_data.append('csvFile',caseFile.files[0]);
+    form_data.append('caseCsv',caseFile.files[0]);
 
     fetch(`/auth/admin/upload/cases?in=`+token,{
         method : 'POST',
@@ -29,5 +29,38 @@ casesForm.addEventListener('submit',(e)=>{
             document.getElementById('cases-upload-feedback').innerText = error;
         }    
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+        console.log(err)
+        document.getElementById('cases-upload-feedback').innerText = err;
+    });
+});
+
+countryForm.addEventListener('submit',(e)=>{
+    e.preventDefault();
+
+    const form_data = new FormData();
+    form_data.append('countryCsv',countryFile.files[0]);
+
+    fetch(`/auth/admin/upload/country?in=`+token,{
+        method : 'POST',
+        body:form_data
+    })
+    .then(response => response.json())
+    .then(({data,status,error}) => {
+        if (status === 200){
+            document.getElementById('cases-upload-feedback').innerText = data;
+        }
+        else if (status === 401)
+        {
+            document.getElementById('cases-upload-feedback').innerText = error+''+status;
+        }
+        else{
+            document.getElementById('cases-upload-feedback').innerText = error +''+status;
+        }    
+    })
+    .catch(err => {
+        console.log(err)
+        document.getElementById('cases-upload-feedback').innerText = err;
+
+    });
 });
