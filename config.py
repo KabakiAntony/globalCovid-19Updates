@@ -8,6 +8,7 @@ class Config(object):
     TESTING = False
     SECRET_KEY = os.environ.get('SECRET_KEY')
     DATABASE_URI = os.environ.get('DATABASE_URL')
+    UPLOAD_FOLDER = os.environ.get('UPLOAD_FOLDER')
 
 class Production(Config):
     pass
