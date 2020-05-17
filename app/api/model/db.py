@@ -49,23 +49,15 @@ def create_tables():
     create_cases_table ="""
     CREATE TABLE IF NOT EXISTS cases
     (
-        countryId INTEGER NOT NULL,
+        country varchar(255) NOT NULL,
         confirmedCases INTEGER NOT NULL,
-        totalDeaths INTEGER NOT NULL,
-        totalRecoveries INTEGER NOT NULL,
+        Deaths INTEGER NOT NULL,
+        Recoveries INTEGER NOT NULL,
         activeCases INTEGER NOT NULL,
-        dateOf varchar(255) NOT NULL,
-        FOREIGN KEY (countryId) REFERENCES country(countryId) ON DELETE CASCADE
+        dateOf date NOT NULL
     )"""
 
-    create_country_table = """
-    CREATE TABLE IF NOT EXISTS country
-    (
-        countryId INTEGER NOT NULL UNIQUE,
-        countryName varchar(125) NOT NULL UNIQUE     
-    )
-    """
-    return [create_users_table,create_country_table,create_cases_table]
+    return [create_users_table,create_cases_table]
 
 def drop_tables():
     """Drop tables everytime the app restarts"""
@@ -73,9 +65,7 @@ def drop_tables():
     DROP TABLE IF EXISTS users CASCADE"""
     drop_cases_table ="""
     DROP TABLE IF EXISTS cases CASCADE"""
-    drop_country_table ="""
-    DROP TABLE IF EXISTS country CASCADE"""
-    return [drop_users_table,drop_country_table,drop_cases_table]
+    return [drop_users_table,drop_cases_table]
 
 
 def db_connection(query=None):
