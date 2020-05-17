@@ -62,8 +62,7 @@ def create_tables():
     CREATE TABLE IF NOT EXISTS country
     (
         countryId INTEGER NOT NULL UNIQUE,
-        countryName varchar(125) NOT NULL UNIQUE,
-        countryCode VARCHAR (5) NOT NULL UNIQUE        
+        countryName varchar(125) NOT NULL UNIQUE     
     )
     """
     return [create_users_table,create_country_table,create_cases_table]
