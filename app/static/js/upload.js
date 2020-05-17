@@ -13,6 +13,7 @@ casesForm.addEventListener('submit',(e)=>{
 
     fetch(`/auth/admin/upload/cases?in=`+token,{
         method : 'POST',
+        // headers : {'Authorization':'Bearer '+ token},
         body:form_data
     })
     .then(response => response.json())
@@ -37,35 +38,3 @@ casesForm.addEventListener('submit',(e)=>{
     });
 });
 
-countryForm.addEventListener('submit',(e)=>{
-    e.preventDefault();
-
-    const country_data = new FormData();
-    country_data.append('countryCsv',countryFile.files[0]);
-
-    fetch(`/auth/admin/upload/country?in=`+token,{
-        method : 'POST',
-        body:country_data
-    })
-    .then(response => response.json())
-    .then(({data,status,error}) => {
-        if (status === 200){
-            console.log(data)
-            document.getElementById('cases-upload-feedback').innerText = data;
-        }
-        else if (status === 401)
-        {
-            console.log(error)
-            document.getElementById('cases-upload-feedback').innerText = error+''+status;
-        }
-        else{
-            console.log(error)
-            document.getElementById('cases-upload-feedback').innerText = error +''+status;
-        }    
-    })
-    .catch((err) => {
-        console.log(err)
-        document.getElementById('cases-upload-feedback').innerText = err + "unknown error";
-
-    });
-});
