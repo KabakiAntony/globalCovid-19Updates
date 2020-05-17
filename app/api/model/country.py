@@ -8,17 +8,16 @@ class Country:
     country model
     """
 
-    def __init__(self,countryId,countryName,countryCode):
+    def __init__(self,countryId,countryName):
         """Initialize attribs of a country"""
         self.countryId = countryId
         self.countryName = countryName
-        self.countryCode = countryCode
     
     def upload_countries(countryCsv):
         """Save country data into the db"""
         konnection,kursor = db_connection()
         with open(countryCsv,'r') as f:
             next(f)
-            kursor.copy_from(f,'cases',sep=',')
+            kursor.copy_from(f,'country',sep=',')
         konnection.commit()
         return "Country info uploaded successfully"
