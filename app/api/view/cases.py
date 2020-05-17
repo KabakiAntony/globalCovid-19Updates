@@ -23,14 +23,43 @@ def upload_cases(user):
             secureFilename = secure_filename(receivedFile.filename)
             receivedFile.save(os.path.join(secureFilename))
             feedback = Cases.create_case(secureFilename)
-            # with open(secureFilename,'r') as f:
-            #     next(f)
-            #     kursor.copy_from(f,'cases',sep=',')
-            # konnection.commit()
             return override_make_response("data",feedback,200)
 
         except (Exception,psycopg2.DatabaseError) as err:
             return override_make_response("error","Database error of : {} ".format(err),400)
 
     return override_make_response("error","Only the admin can load data into the db",401)
+
+@globalUpdatesBlueprint.route('/country/<countryName>',methods=['GET'])
+def get_country_data(countryName):
+    """Get only a particular country's data"""
+    feedback = Cases.get_country_summary(countryName)
+    if not feedback:
+        return override_make_response("error","No data found",404)
+    return override_make_response("data",feedback,200)
+
+@globalUpdatesBlueprint.route('/country/all',methods=['GET'])
+def get_latest_all_countries():
+    """Get the latest for each country"""
+    feedback = Cases.get_all_countries_latest()
+    if not feedback:
+        return override_make_response("error","No data found",404)
+    return override_make_response("data",feedback,200)
+
+@globalUpdatesBlueprint.route('/global/summary',methods=['GET'])
+def get_latest_global_sum():
+    """Get the latest for the whole globe"""
+    feedback = Cases.get_global_summary_latest()
+    if not feedback:
+        return override_make_response("error","No data found",404)
+    return override_make_response("data",feedback,200)
+
+@globalUpdatesBlueprint.route('/historical/country/<countryName>',methods=['GET'])
+def get_country_historical_data(countryName):
+    """Get only a particular country's data from the beginning"""
+    feedback = Cases.get_country_historical(countryName)
+    if not feedback:
+        return override_make_response("error","No data found",404)
+    return override_make_response("data",feedback,200)
+
        
