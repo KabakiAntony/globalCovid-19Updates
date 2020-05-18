@@ -45,19 +45,6 @@ class Cases:
             cases_data.append(case_format)
         return cases_data
     
-    def format_global_sum(iterable):
-        """Format the global data into an iterable list"""
-        global_data = []
-        for global_item in iterable:
-            global_format = {
-                "confirmedCases":global_item[0],
-                "Deaths":global_item[1],
-                "Recoveries":global_item[2],
-                "ActiveCases":global_item[3],
-            }
-            global_data.append(global_format)
-        return global_data
-    
     def get_all_countries_latest():
         """this gets all global cases last update"""
         get_global = """
@@ -78,12 +65,11 @@ class Cases:
     def get_global_summary_latest():
         """get the summary of all countries making a global update"""
         get_global_sum = """
-        select sum(confirmedCases) as GlobalConfirmedCases,sum(Deaths) as GlobalDeaths,
-        sum(Recoveries) as GlobalRecoveries,sum(activeCases) as GlobalActiveCases
+        select country,confirmedCases,Deaths,Recoveries,activeCases,dateOf
         from cases
-        where dateOf = current_date;
+        where (dateOf = current_date and country='Global');
         """
-        return Cases.format_global_sum(handle_select_queries(get_global_sum))
+        return Cases.format_cases(handle_select_queries(get_global_sum))
 
     def get_country_historical(country):
         """gets historical data for a particular country since the beginning of this pandemic"""
