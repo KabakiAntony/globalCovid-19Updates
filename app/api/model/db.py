@@ -54,7 +54,7 @@ def create_tables():
         Deaths INTEGER NOT NULL,
         Recoveries INTEGER NOT NULL,
         activeCases INTEGER NOT NULL,
-        dateOf date NOT NULL
+        dateOf timestamp NOT NULL
     )"""
 
     return [create_users_table,create_cases_table]
