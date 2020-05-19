@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/KabakiAntony/globalCovid-19Updates.svg?branch=develop)](https://travis-ci.org/KabakiAntony/globalCovid-19Updates)
-
 ## What is  globalCovid-19Updates
+
+[![Build Status](https://travis-ci.org/KabakiAntony/globalCovid-19Updates.svg?branch=develop)](https://travis-ci.org/KabakiAntony/globalCovid-19Updates)
 
 It is a REST API that gives daily updates for consumption by people who 
 are looking to make apps that give users the daily numbers as we 
