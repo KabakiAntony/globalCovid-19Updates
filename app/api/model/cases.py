@@ -103,3 +103,11 @@ class Cases:
         from cases
         where (country ='{}' or country ='{}');""".format(country.capitalize(),country)
         return Cases.format_cases(handle_select_queries(get_country_historical_data))
+    
+    def get_country_names():
+        """gets the country names"""
+        get_country_names_data = """
+        select country
+        from cases
+        where  country NOT like 'Global' AND (dateOf::date = current_date);"""
+        return handle_select_queries(get_country_names_data)

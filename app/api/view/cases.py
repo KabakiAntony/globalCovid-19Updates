@@ -61,4 +61,11 @@ def get_latest_global_sum():
     feedback = Cases.get_global_summary_latest()
     return override_make_response("data",feedback,200)
 
+
+@globalUpdatesBlueprint.route('/names',methods=['GET'])
+def get_country_names():
+    """Get country names"""
+    feedback = Cases.get_country_names()
+    return override_make_response("data",feedback,200)
+
        
