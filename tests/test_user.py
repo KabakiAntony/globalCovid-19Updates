@@ -2,7 +2,7 @@
 import unittest
 import json
 from app import create_app
-from app.api.model.db import db_init
+from app.api.model.db import db_init,createAdmin
 
 
 class TestUser(unittest.TestCase):
@@ -25,6 +25,7 @@ class TestUser(unittest.TestCase):
 
     def test_successful_user_login(self):
         """Test login """
+        createAdmin()
         response = self.client.post(
             "/auth/admin/signin", 
             data=json.dumps(self.correct_user)
@@ -34,6 +35,7 @@ class TestUser(unittest.TestCase):
     
     def test_signin_with_wrong_password(self):
         """Test sign in with a wrong password"""
+        createAdmin()
         response = self.client.post(
             "/auth/admin/signin", 
             data=json.dumps(self.wrong_password)
@@ -41,6 +43,7 @@ class TestUser(unittest.TestCase):
         self.assertEqual(response.status_code, 401)
 
     def test_signin_non_existent_user(self):
+        createAdmin()
         """Test sign in a non-existent user"""
         response = self.client.post(
             "/auth/admin/signin", 
