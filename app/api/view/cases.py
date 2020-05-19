@@ -52,6 +52,8 @@ def get_latest_global():
     feedback = Cases.get_global_summary_latest()
     feedbackI = Cases.get_all_countries_latest()
     global_country_list = feedback + feedbackI
+    if (not feedback and not feedbackI):
+        return override_make_response("error","No data found",404)
     return override_make_response("data",global_country_list,200)
 
 
@@ -59,6 +61,8 @@ def get_latest_global():
 def get_latest_global_sum():
     """Get the latest for the whole globe"""
     feedback = Cases.get_global_summary_latest()
+    if not feedback:
+        return override_make_response("error","No data found",404)
     return override_make_response("data",feedback,200)
 
 
@@ -66,6 +70,8 @@ def get_latest_global_sum():
 def get_country_names():
     """Get country names"""
     feedback = Cases.get_country_names()
+    if not feedback:
+        return override_make_response("error","No data found",404)
     return override_make_response("data",feedback,200)
 
        
