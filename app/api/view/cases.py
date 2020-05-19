@@ -38,14 +38,6 @@ def get_country_data(countryName):
         return override_make_response("error","No data found",404)
     return override_make_response("data",feedback,200)
 
-# @globalUpdatesBlueprint.route('/country/all',methods=['GET'])
-# def get_latest_all_countries():
-#     """Get the latest for each country"""
-#     feedback = Cases.get_all_countries_latest()
-#     if not feedback:
-#         return override_make_response("error","No data found",404)
-#     return override_make_response("data",feedback,200)
-
 @globalUpdatesBlueprint.route('/historical/country/<countryName>',methods=['GET'])
 def get_country_historical_data(countryName):
     """Get only a particular country's data from the beginning"""
@@ -60,8 +52,6 @@ def get_latest_global():
     feedback = Cases.get_global_summary_latest()
     feedbackI = Cases.get_all_countries_latest()
     global_country_list = feedback + feedbackI
-    if not global_country_list:
-        return override_make_response("error","No data found",404)
     return override_make_response("data",global_country_list,200)
 
 
@@ -69,8 +59,6 @@ def get_latest_global():
 def get_latest_global_sum():
     """Get the latest for the whole globe"""
     feedback = Cases.get_global_summary_latest()
-    if not feedback:
-        return override_make_response("error","No data found",404)
     return override_make_response("data",feedback,200)
 
        

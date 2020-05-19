@@ -40,7 +40,7 @@ class Cases:
                 "Deaths":case_item[2],
                 "Recoveries":case_item[3],
                 "activeCases":case_item[4],
-                "dateOf":case_item[5]
+                "asAt":case_item[5]
                 }
             cases_data.append(case_format)
         return cases_data
@@ -50,26 +50,51 @@ class Cases:
         get_global = """
         select country,confirmedCases,Deaths,Recoveries,activeCases,dateOf
         from cases
-        where dateOf = current_date;"""
-        return Cases.format_cases(handle_select_queries(get_global))
+        where dateOf::date = current_date ;"""
+        get_global_last = """
+        select country,confirmedCases,Deaths,Recoveries,activeCases,dateOf
+        from cases
+        where  dateOf::date = current_date -1;
+        """
+        feeback = Cases.format_cases(handle_select_queries(get_global))
+        if not feeback:
+            return Cases.format_cases(handle_select_queries(get_global_last))
+        return feeback
     
     def get_country_summary(country):
         """ this gets the last update for a particular country"""
         get_summary = """
         select country,confirmedCases,Deaths,Recoveries,activeCases,dateOf
         from cases
-        where (country ='{}' or country ='{}') and dateOf = current_date;
-        """.format(country.capitalize(),country)
-        return Cases.format_cases(handle_select_queries(get_summary))
-    
+        where (country ='{}' or country ='{}') 
+        and (dateOf::date = current_date) ;""".format(country.capitalize(),country)
+        get_last_summary = """
+        select country,confirmedCases,Deaths,Recoveries,activeCases,dateOf
+        from cases
+        where (country ='{}' or country ='{}') 
+        and (dateOf::date = current_date - 1) ;
+        """
+        country_summary_list = Cases.format_cases(handle_select_queries(get_summary))
+        if not country_summary_list:
+            return Cases.format_cases(handle_select_queries(get_last_summary))
+        return country_summary_list
+        
     def get_global_summary_latest():
         """get the summary of all countries making a global update"""
         get_global_sum = """
         select country,confirmedCases,Deaths,Recoveries,activeCases,dateOf
         from cases
-        where (dateOf = current_date and country='Global');
+        where ((dateOf::date = current_date) and country='Global');
         """
-        return Cases.format_cases(handle_select_queries(get_global_sum))
+        get_global_sum_last = """
+        select country,confirmedCases,Deaths,Recoveries,activeCases,dateOf
+        from cases
+        where ((dateOf::date = current_date -1) and country='Global');
+        """
+        global_summary_list = Cases.format_cases(handle_select_queries(get_global_sum))
+        if not global_summary_list:
+            return Cases.format_cases(handle_select_queries(get_global_sum_last))
+        return global_summary_list
 
     def get_country_historical(country):
         """gets historical data for a particular country since the beginning of this pandemic"""
