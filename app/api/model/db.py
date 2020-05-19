@@ -15,11 +15,11 @@ def db_init():
         konnection, kursor = db_connection()
         db_init_queries =[]
         if app.config['TESTING']:
-            db_init_queries = drop_tables() + create_tables()
             print("*** Creating test database tables *** ")
+            db_init_queries = drop_tables() + create_tables()
         else:
-            db_init_queries = create_tables()
             print("*** Creating production database tables *** ")
+            db_init_queries = create_tables()
         i = 0
         while i != len(db_init_queries):
             query = db_init_queries[i]
@@ -27,7 +27,7 @@ def db_init():
             konnection.commit()
             i += 1
         createAdmin()
-        print("*** Database tables are ready ***")
+        print("*** Tables are ready ***")
         konnection.close()
     except Exception as error:
         print("We got an error of ->:{} @method db_init".format(error))
