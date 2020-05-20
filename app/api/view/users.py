@@ -6,7 +6,7 @@ from app.api import globalUpdatesBlueprint
 from app.api.model.users import Users
 from app.api.utils import isEmail,token_required,override_make_response
 
-KEY = os.getenv('SECRET_KEY')
+KEY = os.getenv('SECRET_KEY','9hqhBvIEfq5qEWyHklFxMIJES_c')
 
 @globalUpdatesBlueprint.route('/auth/admin', methods=['GET'])
 def show_login_UI():
