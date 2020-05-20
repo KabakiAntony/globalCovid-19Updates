@@ -1,6 +1,6 @@
 ## What is  globalCovid-19Updates
 
-[![Build Status](https://travis-ci.org/KabakiAntony/globalCovid-19Updates.svg?branch=develop)](https://travis-ci.org/KabakiAntony/globalCovid-19Updates)
+[![Build Status](https://travis-ci.org/KabakiAntony/globalCovid-19Updates.svg?branch=develop)](https://travis-ci.org/KabakiAntony/globalCovid-19Updates) [![Coverage Status](https://coveralls.io/repos/github/KabakiAntony/globalCovid-19Updates/badge.svg?branch=develop)](https://coveralls.io/github/KabakiAntony/globalCovid-19Updates?branch=develop)
 
 It is a REST API that gives daily updates for consumption by people who 
 are looking to make apps that give users the daily numbers as we 
