@@ -21,47 +21,37 @@ class TestUser(unittest.TestCase):
 
     def tearDown(self):
         """Clear the db after tests finish running"""
-        #db_init()
+        db_init()
 
     def test_successful_user_login(self):
         """Test login """
-        response = self.client.post(
-            "/auth/admin/signin", 
-            data=json.dumps(self.correct_user)
-            ,content_type="application/json")
+        response = self.client.post("/auth/admin/signin",\
+        data=json.dumps(self.correct_user),content_type="application/json")
         self.assertEqual(response.status_code, 200)
 
     
     def test_signin_with_wrong_password(self):
         """Test sign in with a wrong password"""
-        response = self.client.post(
-            "/auth/admin/signin", 
-            data=json.dumps(self.wrong_password)
-            ,content_type="application/json")
+        response = self.client.post("/auth/admin/signin",\
+            data=json.dumps(self.wrong_password),content_type="application/json")
         self.assertEqual(response.status_code, 401)
 
     def test_signin_non_existent_user(self):
         """Test sign in a non-existent user"""
-        response = self.client.post(
-            "/auth/admin/signin", 
-            data=json.dumps(self.non_existent_user)
-            ,content_type="application/json")
+        response = self.client.post("/auth/admin/signin",\
+            data=json.dumps(self.non_existent_user),content_type="application/json")
         self.assertEqual(response.status_code, 404)
 
     def test_signin_an_email_key_missing(self):
         """Test signing with the email field missing"""
-        response = self.client.post(
-            "/auth/admin/signin", 
-            data=json.dumps(self.no_email_field)
-            ,content_type="application/json")
+        response = self.client.post("/auth/admin/signin",\
+            data=json.dumps(self.no_email_field),content_type="application/json")
         self.assertEqual(response.status_code, 400)
 
     def test_signin_password_key_missing(self):
         """Test signing with the password field missing"""
-        response = self.client.post(
-            "/auth/admin/signin", 
-            data=json.dumps(self.no_password_field)
-            ,content_type="application/json")
+        response = self.client.post("/auth/admin/signin",\
+            data=json.dumps(self.no_password_field),content_type="application/json")
         self.assertEqual(response.status_code, 400)
 
 
