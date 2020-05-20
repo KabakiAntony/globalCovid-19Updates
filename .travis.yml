@@ -5,6 +5,12 @@ python:
 install:
   - pip install -r requirements.txt
 
+dist:
+  - xenial
+
+os:
+  - linux
+
 services:
   - postgresql
   
