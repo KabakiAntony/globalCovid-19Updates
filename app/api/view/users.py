@@ -41,7 +41,7 @@ def authenticate_admin():
 
         token = jwt.encode({"email" :email},KEY,algorithm="HS256")
 
-        return override_make_response("data",token.decode('UTF-8'),200)
+        return override_make_response("data",token.decode('utf-8'),200)
     except psycopg2.DatabaseError as _error:
         abort(make_response(jsonify({"Error":"Server error"}),500))
 
