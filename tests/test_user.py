@@ -21,7 +21,7 @@ class TestUser(unittest.TestCase):
 
     def tearDown(self):
         """Clear the db after tests finish running"""
-        db_init()
+        #db_init()
 
     def test_successful_user_login(self):
         """Test login """
