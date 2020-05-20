@@ -67,13 +67,13 @@ class Cases:
         select country,confirmedCases,Deaths,Recoveries,activeCases,dateOf
         from cases
         where (country ='{}' or country ='{}') 
-        and (dateOf::date = current_date) ;""".format(country.capitalize(),country)
+        and dateOf::date = current_date ;""".format(country.capitalize(),country)
         get_last_summary = """
         select country,confirmedCases,Deaths,Recoveries,activeCases,dateOf
         from cases
         where (country ='{}' or country ='{}') 
-        and (dateOf::date = current_date - 1) ;
-        """
+        and dateOf::date = current_date - 1;
+        """.format(country.capitalize(),country)
         country_summary_list = Cases.format_cases(handle_select_queries(get_summary))
         if not country_summary_list:
             return Cases.format_cases(handle_select_queries(get_last_summary))
@@ -109,5 +109,6 @@ class Cases:
         get_country_names_data = """
         select country
         from cases
-        where  country NOT like 'Global' AND (dateOf::date = current_date);"""
+        where  country NOT like 'Global' 
+        AND (dateOf::date = current_date or dateOf::date = current_date-1);"""
         return handle_select_queries(get_country_names_data)
