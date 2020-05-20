@@ -6,7 +6,7 @@ from flask import jsonify,request,make_response,abort,\
 from functools import wraps
 from app.api.model.db import handle_select_queries
 
-KEY = os.getenv('SECRET_KEY')
+KEY = os.getenv('SECRET_KEY','9hqhBvIEfq5qEWyHklFxMIJES_c')
 
 def token_required(f):
     """
@@ -18,10 +18,7 @@ def token_required(f):
         token = None
         if request.args.get('in'):
             token = request.args.get('in')
-            #token = request.headers['BEARER']
-            # token = request.args.get('in')
         if not token:
-            # return override_make_response("error","token is missing",401)
             return render_template('unauthorized.html')
         try:
             data = jwt.decode(token,KEY,algorithm="HS256")
@@ -30,7 +27,6 @@ def token_required(f):
             WHERE users.email = '{}'""".format(data['email'])
             user = handle_select_queries(query)
         except:
-            # return override_make_response("error","token is expired or invalid",401)
             return render_template('invalid-token.html')        
         return f(user, *args, **kwargs)
     return decorated
