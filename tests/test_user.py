@@ -25,11 +25,10 @@ class TestUser(unittest.TestCase):
     def test_successful_user_login(self):
         """Test login """
         response = self.client.post(
-            "/auth/admin/signin",
-        data=json.dumps(
-            {"email":"kabaki.antony@gmail.com",
-            "password":"Banuit*123"})
-        ,content_type="application/json")
+            "/auth/admin/signin", data=json.dumps(
+                {"email":"kabaki.antony@gmail.com",
+            "password":"Banuit*123"
+            }),content_type="application/json")
         self.assertEqual(response.status_code, 200)
 
     
