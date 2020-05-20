@@ -15,7 +15,6 @@ class TestUser(unittest.TestCase):
         self.no_password_field = {"email":"kabaki.kiarie@gmail.com"}
         self.non_existent_user = {"email":"akabaki.kiarie@gmail.com","password":"Baniut*123"}
         self.no_email_field = {"password":"Banuit*123"}
-        self.correct_user = {"email":"kabaki.antony@gmail.com","password":"Banuit*123"}
         self.wrong_password = {"email":"kabaki.antony@gmail.com","password":"Banuitw123"}
         
 
@@ -25,8 +24,12 @@ class TestUser(unittest.TestCase):
 
     def test_successful_user_login(self):
         """Test login """
-        response = self.client.post("/auth/admin/signin",\
-        data=json.dumps(self.correct_user),content_type="application/json")
+        response = self.client.post(
+            "/auth/admin/signin",
+        data=json.dumps(
+            {"email":"kabaki.antony@gmail.com",
+            "password":"Banuit*123"})
+        ,content_type="application/json")
         self.assertEqual(response.status_code, 200)
 
     
