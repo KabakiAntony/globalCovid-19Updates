@@ -1,19 +1,20 @@
 /* this will hold the main css for the site*/
 *{box-sizing: border-box;}
-body{
-    margin:0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Spartan', sans-serif;
+html,
+body {
+   margin:0;
+   padding:0;
+   height:100%;
+   font-family: 'Spartan', sans-serif;
 }
-#container{
+#container {
     width: 100%;
+    min-height:100%;
+    position:relative;
     text-align: center;
-    position: relative;
-    padding-bottom: 60px;
+
 }
-header{
+header {
     background-color: rgba(0, 0, 0, 0.76);
     height:auto;
     font-size:0.8rem;
@@ -21,9 +22,14 @@ header{
     padding:1.0rem;
     font-weight: 500;
 }
-#para-data{margin:14px;}
-.para{
-    font-size:0.8rem;
+#body{
+    padding-bottom:40px;
+    
+}
+h1,h2{
+    margin:10px;
+    margin-bottom:0.8rem;
+    font-size:1rem;
 }
 #endpoints{
     text-align: left;
@@ -37,27 +43,22 @@ header{
     margin:0 auto;
     margin-bottom: 15px;
 }
+.para{
+    font-size:0.8rem;
+}
 a{
     text-decoration: none;
     color: rgb(255, 0, 242);
 }
 footer {
-    font-size: 1.0rem;
-    background-color: rgba(0, 0, 0, 0.76);
-    height:40px;
-    font-size: 0.8rem;
-    color: white;
-    padding:1rem;
-    position: absolute;;
-    bottom: 0;
-    width:100%;
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:30px;
+   font-size:0.8rem;
+   color: white;
+   background-color: rgba(0, 0, 0, 0.76);
 }
-h1,h2{
-    margin:10px;
-    margin-bottom:0.8rem;
-    font-size:1rem;
-}
-/* Tablets and iPads (portrait and landscape) ---------- */
 @media screen and (min-width: 444px) and (max-width: 501px){
     header{
         font-size:1.2rem;
@@ -72,7 +73,6 @@ h1,h2{
     font-size:1.6rem;
 }
 }
-/* Tablets and iPads (portrait and landscape) ---------- */
 @media screen and (min-width: 501px) and (max-width: 765px){
     header{
         font-size:1.3rem;
@@ -87,7 +87,6 @@ h1,h2{
     font-size:1.8rem;
 }
 }
-/* Tablets and iPads (portrait and landscape) ---------- */
 @media screen and (min-width: 766px) {
     header{
         font-size:1.4rem;

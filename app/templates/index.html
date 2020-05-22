@@ -10,25 +10,27 @@
 </head>
 <body>
     <div id="container">
-        <header>Global Covid-19 Updates</header>    
-        <h1>This is a rest api that gives the daliy updates of Covid-19 numbers</h1>
-        <p class="para" id="para-data">Data is sourced from github repository maintained by 
-            <a href="https://github.com/CSSEGISandData/COVID-19">John Hopkins University</a></p>
-        <p class="para">This api is free to use</p>
-        <h2>Below are the available endpoints</h2>
-        <div id="endpoints">
-        <p class="para"><a href="/global">/global</a>  Gets the global numbers as per last update</p>
-        <p class="para"><a href="/global/summary">/global/summary</a>&nbsp;&nbsp;Gets the last global sum and a per country breakdown</p>
-        <p class="para"><a href="/country/:name">/country/:name</a>&nbsp;&nbsp;Gets the last update of the named country</p>
-        <p class="para"><a href="/historical/country/:name">/historical/country/:name</a>&nbsp;&nbsp;Gets all the data of the given country since beginning</p>
-        <p class="para"><a href="/names">/names</a>&nbsp;&nbsp;Gets  the names of the countries just to avoid errors</p> 
+        <header>Global Covid-19 Updates</header>
+        <div id="body">
+            <h1>This is a rest api that gives the daliy updates of Covid-19 numbers</h1>
+           <p class="para" id="para-data">Data is sourced from github repository maintained by 
+             <a href="https://github.com/CSSEGISandData/COVID-19">John Hopkins University</a></p>
+           <p class="para">This api is free to use</p>
+           <h2>Below are the available endpoints</h2>
+           <div id="endpoints">
+           <p class="para">GET the global numbers as per last update&nbsp;&nbsp;<a href="/global">/global</a></p>
+           <p class="para">GET the last global sum and a per country breakdown&nbsp;&nbsp;<a href="/global/summary">/global/summary</a></p>
+           <p class="para">GET the last update of the named country&nbsp;&nbsp;<a href="/country/:name">/country/:name</a></p>
+           <p class="para">GET all the data of the given country since beginning&nbsp;&nbsp;<a href="/historical/country/:name">/historical/country/:name</a></p>
+           <p class="para">GET the names of the countries just to avoid errors&nbsp;&nbsp;<a href="/names">/names</a></p> 
         </div>
         <script type='text/javascript' src='https://ko-fi.com/widgets/widget_2.js'></script>
         <script type='text/javascript'>
         kofiwidget2.init('Support Me on Ko-fi', '#4f5557', 'Q5Q11Q42J');
         kofiwidget2.draw();
-        </script>       
-        <footer>&copy;  2020 <a href="https://twitter.com/kabakikiarie">Find me here</a></footer>
+        </script>      
+        </div>    
+        <footer><p>&copy;  2020 <a href="https://twitter.com/kabakikiarie">Find me here</a></p></footer>
     </div>
 </body>
 </html>
