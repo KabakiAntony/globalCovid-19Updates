@@ -1,7 +1,7 @@
 .login{
     border-radius: 5px;
     padding: 1.5rem;
-    width: 400px;
+    width:85%;
     margin:0 auto;
     margin-top: 3rem;
     background-color: rgba(0, 0, 0, 0.76);
@@ -89,3 +89,10 @@ label{
     from {bottom: 150px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
   }
+
+@media screen and (min-width: 380px) {
+  .login{
+    width: 350px;
+  }
+   
+}

@@ -10,6 +10,8 @@ body{
 #container{
     width: 100%;
     text-align: center;
+    position: relative;
+    padding-bottom: 60px;
 }
 header{
     background-color: rgba(0, 0, 0, 0.76);
@@ -42,11 +44,11 @@ a{
 footer {
     font-size: 1.0rem;
     background-color: rgba(0, 0, 0, 0.76);
-    height:auto;
+    height:40px;
     font-size: 0.8rem;
     color: white;
     padding:1rem;
-    position: fixed;
+    position: absolute;;
     bottom: 0;
     width:100%;
 }
