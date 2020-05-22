@@ -55,9 +55,15 @@ the repository that is being maintained by the [John Hopkins University](https:/
       ```
 <details>
       <summary>globalCovid-19Updates endpoints</summary>
-      Right now there is no endpoint that is ready but they will go here when done.
 
-      
+      | Method   | Endpoint                              | Description                                                 |
+      | -------- | ------------------------------------- | ------------------------------------------------------------|
+      | `GET`    | `/global`                             | get the latest update of the global numbers                 |
+      | `GET`    | `/global/summary`                     | get the latest global sum and a per country breakdown       |
+      | `GET`    | `/country/<str:name>`                 | get the numbers of the country whose name has been supplied |
+      | `GET`    | `/historical/country/<str:name>`      | get the historical details of the country                   |
+      | `GET`    | `/names`                              | gets all the names of the countries                         |
+
 </details>
 
 Incase of a bug or anything else use any on the below channels to reach me on
