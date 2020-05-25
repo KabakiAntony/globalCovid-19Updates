@@ -2,7 +2,6 @@ fetch('https://globalcovid19updates.herokuapp.com/global/summary')
 .then(response=>response.json())
 .then(({data,status,error})=>{
     if(status === 200){
-        console.log(data)
         document.getElementById('show-updates').innerHTML=`
         Covid-19 numbers as at ${data[0].asAt}
         <table class="holder">

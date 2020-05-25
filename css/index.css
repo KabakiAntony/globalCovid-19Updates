@@ -25,6 +25,7 @@
 #body{
     width: 90%;
     margin: 0 auto;
+    padding-bottom: 30px;
 }
 .holder,td,th{
     border: 1px solid black;
@@ -44,4 +45,18 @@ td
     font-size:9px;
     text-align: left;
     padding: 8px;
+}
+footer{
+    position:absolute;
+    bottom: 0;
+    width: 100%;
+    padding:5px;
+    height: 20px;
+    background-color: rgba(0, 0, 0, 0.76);
+    color: rgb(255, 255, 255);
+    font: 8px;
+}
+footer a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
 }
