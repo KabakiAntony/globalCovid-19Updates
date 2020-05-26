@@ -132,6 +132,9 @@ footer a{
     height: 500px;
     overflow: auto;*/
 }
+#td-confirmed-cases,#td-active-cases,#td-recoveries,#td-deaths{
+        font-size: 20px;    
+}
 header{
     font-size: 1.4rem;
     font-weight: 500;
