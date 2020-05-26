@@ -6,6 +6,7 @@
       padding:0;
       font-family: 'Questrial', sans-serif;
       height:100%;
+      background-color:rgba(72, 134, 176, 0.356);
   }
   #container {
     width: 100%;
@@ -24,7 +25,7 @@ label{
     font-size: 14px;
 }
 #global-summary{
-background-color: #4887B0;
+    background-color:rgba(61, 72, 108, 0.507);
 color: rgb(255, 255, 255);
 width: 100%;
 margin:0 auto;
@@ -35,26 +36,36 @@ border-radius: 5px;
 font-size: 25px;
 font-weight: bold;
 }
-#confirmed-cases{
-    color:rgba(255, 0, 0, 0.534);
+#confirmed-cases,#td-confirmed-cases{
+    color:rgba(246, 81, 101);
 }
-#active-cases{
+#active-cases,#td-active-cases{
     color:rgba(255, 238, 0, 0.739);
 }
-#recoveries{
+#recoveries,#td-recoveries{
     color:rgb(18, 214, 18);
 }
-#deaths{
-    color:rgba(45, 45, 48, 0.774);
+#deaths,#td-deaths{
+    color:rgba(6, 6, 7, 0.986);
+}
+#td-country{
+    color: rgb(255, 255, 255);
+}
+#td-confirmed-cases,#td-active-cases,#td-recoveries,#td-deaths{
+    background-color:rgba(61, 72, 108, 0.507);
+    font-weight: 400;
+    font-size: large;
+    
 }
 
+
 header {
-    background-color: #4887B0;
+    background-color:rgba(61, 72, 108, 0.507);
     height:auto;
     font-size:1rem;
     color: white;
     padding:1.0rem;
-    /*font-weight: 600;*/
+    text-align: left;
 }
 #body{
     width: 90%;
@@ -64,9 +75,10 @@ header {
 .holder,td,th{
     border: 1px solid black;
     border-collapse: collapse;
-    width:100%;
+    width:95%;
     margin:0 auto;
     table-layout: fixed ;
+    color:rgb(255, 255, 255);
 }
 th{
     background-color: rgb(0, 0, 0);
@@ -79,7 +91,8 @@ td
 {
     font-size:9px;
     text-align: left;
-    padding: 8px;
+    padding: 5px;
+    background-color:rgba(61, 72, 108, 0.507);
 }
 footer{
     position:absolute;
@@ -94,4 +107,34 @@ footer{
 footer a{
     text-decoration: none;
     color: rgb(255, 255, 255);
+}
+@media only screen and (min-width : 400px) {
+#global-summary{width: 23%;float: left;font-size: 28px;}
+#show-updates{
+    margin-top:5px;
+    width:76%;
+    float:right;
+    background-color:rgba(61, 72, 108, 0.507);
+    padding:10px;
+    border-radius: 5px;
+}
+header{
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+th{
+    
+    font-size:14px;
+    padding:8px;
+    text-align: left;
+    font-weight: normal;
+
+}
+td
+{
+    font-size:16px;
+    text-align: left;
+    padding: 5px;
+}
+
 }

@@ -50,11 +50,11 @@ fetch('https://globalcovid19updates.herokuapp.com/global/summary')
             return `
             <table class="holder">
             <tr>
-            <td>${globalData.country}</td>
-            <td>${globalData.confirmedCases}</td>
-            <td>${globalData.activeCases}</td>
-            <td>${globalData.Recoveries}</td>
-            <td>${globalData.Deaths}</td>
+            <td id="td-country">${globalData.country}</td>
+            <td id="td-confirmed-cases">${formatNumber(globalData.confirmedCases)}</td>
+            <td id="td-active-cases">${formatNumber(globalData.activeCases)}</td>
+            <td id="td-recoveries">${formatNumber(globalData.Recoveries)}</td>
+            <td id="td-deaths">${formatNumber(globalData.Deaths)}</td>
             </tr>
             
             </table>
