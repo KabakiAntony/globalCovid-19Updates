@@ -25,7 +25,7 @@ label{
     font-size: 14px;
 }
 #global-summary{
-    background-color:rgba(61, 72, 108, 0.507);
+background-color:rgba(61, 72, 108, 0.774);
 color: rgb(255, 255, 255);
 width: 100%;
 margin:0 auto;
@@ -35,6 +35,16 @@ margin-bottom: 5px;
 border-radius: 5px;
 font-size: 25px;
 font-weight: bold;
+}
+#show-updates{
+    margin:0 auto;
+    margin-top:5px;
+    width:100%;
+    padding:5px;
+    border-radius: 5px;
+    height: 250px;
+    overflow: auto;
+    background-color:rgba(61, 72, 108, 0.774);
 }
 #confirmed-cases,#td-confirmed-cases{
     color:rgba(246, 81, 101);
@@ -54,13 +64,12 @@ font-weight: bold;
 #td-confirmed-cases,#td-active-cases,#td-recoveries,#td-deaths{
     background-color:rgba(61, 72, 108, 0.507);
     font-weight: 400;
-    font-size: large;
-    
+    font-size: 12px;    
 }
 
 
 header {
-    background-color:rgba(61, 72, 108, 0.507);
+    background-color:rgba(61, 72, 108, 0.774);
     height:auto;
     font-size:1rem;
     color: white;
@@ -72,7 +81,7 @@ header {
     margin: 0 auto;
     padding-bottom: 30px;
 }
-.holder,td,th{
+.holder,#data-holder,td,th{
     border: 1px solid black;
     border-collapse: collapse;
     width:95%;
@@ -94,7 +103,7 @@ td
     padding: 5px;
     background-color:rgba(61, 72, 108, 0.507);
 }
-footer{
+/* footer{
     position:absolute;
     bottom: 0;
     width: 100%;
@@ -107,16 +116,21 @@ footer{
 footer a{
     text-decoration: none;
     color: rgb(255, 255, 255);
-}
+} */
 @media only screen and (min-width : 400px) {
 #global-summary{width: 23%;float: left;font-size: 28px;}
 #show-updates{
-    margin-top:5px;
     width:76%;
     float:right;
-    background-color:rgba(61, 72, 108, 0.507);
+    height: 500px;
+    /*margin-top:5px;
+    width:76%;
+    float:right;
+    background-color:rgba(61, 72, 108, 0.774);
     padding:10px;
     border-radius: 5px;
+    height: 500px;
+    overflow: auto;*/
 }
 header{
     font-size: 1.4rem;

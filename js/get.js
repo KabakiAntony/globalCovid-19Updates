@@ -44,11 +44,12 @@ fetch('https://globalcovid19updates.herokuapp.com/global/summary')
             <th>Recoveries</th>
             <th>Deaths</th>
             </tr>
-            
             </table>
         ${data.map(function(globalData){
             return `
-            <table class="holder">
+            <table id="data-holder">
+            <thead></thead>
+            <tbody>
             <tr>
             <td id="td-country">${globalData.country}</td>
             <td id="td-confirmed-cases">${formatNumber(globalData.confirmedCases)}</td>
@@ -56,7 +57,7 @@ fetch('https://globalcovid19updates.herokuapp.com/global/summary')
             <td id="td-recoveries">${formatNumber(globalData.Recoveries)}</td>
             <td id="td-deaths">${formatNumber(globalData.Deaths)}</td>
             </tr>
-            
+            </tbody>
             </table>
             `
         }).join('')}
