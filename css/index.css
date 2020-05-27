@@ -138,7 +138,7 @@ footer a{
     text-decoration: none;
     color: rgb(15, 15, 15);
 }
-@media only screen and (min-width : 400px) {
+@media only screen and (min-width : 650px) {
 html,body{height:100%;}
 #global-summary{width: 23%;float: left;font-size: 28px;}
 #show-updates{
