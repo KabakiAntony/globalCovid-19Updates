@@ -49,12 +49,10 @@ def get_country_historical_data(countryName):
 @globalUpdatesBlueprint.route('/global/summary',methods=['GET'])
 def get_latest_global():
     """Get the latest for the whole globe"""
-    feedback = Cases.get_global_summary_latest()
     feedbackI = Cases.get_all_countries_latest()
-    global_country_list = feedback + feedbackI
-    if (not feedback and not feedbackI):
+    if  not feedbackI:
         return override_make_response("error","No data found",404)
-    return override_make_response("data",global_country_list,200)
+    return override_make_response("data",feedbackI,200)
 
 
 @globalUpdatesBlueprint.route('/global',methods=['GET'])

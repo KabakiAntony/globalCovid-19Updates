@@ -50,11 +50,11 @@ class Cases:
         get_global = """
         select country,confirmedCases,Deaths,Recoveries,activeCases,dateOf
         from cases
-        where dateOf::date = current_date ;"""
+        where (dateOf::date = current_date and country NOT LIKE 'Global%');"""
         get_global_last = """
         select country,confirmedCases,Deaths,Recoveries,activeCases,dateOf
         from cases
-        where  dateOf::date = current_date -1;
+        where  (dateOf::date = current_date -1 and country NOT LIKE 'Global%');
         """
         feeback = Cases.format_cases(handle_select_queries(get_global))
         if not feeback:
