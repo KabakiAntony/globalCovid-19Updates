@@ -7,7 +7,7 @@ fetch('https://extreme-ip-lookup.com/json')
 .then(resp=>{
     if(resp.status === 'success'){
         let countryName = resp.country;
-        getCountryData(countryName);
+        getCountryData(countryName.toString());
     }
     else{
         console.log(status);
