@@ -58,7 +58,6 @@ font-weight: bold;
     padding:5px;
     border-radius: 5px; 
     background-color:rgba(61, 72, 108, 0.774);
-    overflow: auto;/*if this works it is a hack*/
 }
 img{ margin-top: 10px; margin-bottom: 50px;}
 #confirmed-cases,#td-confirmed-cases{
@@ -75,11 +74,12 @@ img{ margin-top: 10px; margin-bottom: 50px;}
 }
 #td-country{
     color: rgb(255, 255, 255);
+    font-size: 13px;
 }
 #td-confirmed-cases,#td-active-cases,#td-recoveries,#td-deaths{
     background-color:rgba(61, 72, 108, 0.507);
     font-weight: 400;
-    font-size: 12px;    
+    font-size: 13px;    
 }
 
 
