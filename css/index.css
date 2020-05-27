@@ -93,6 +93,7 @@ header {
     margin: 0 auto;
     padding-bottom: 50px;
 }
+
 .holder,#data-holder,td,th{
     border: 1px solid rgba(235, 174, 174, 0.452);
     border-collapse: collapse;
@@ -130,7 +131,7 @@ footer{
 }
 footer a{
     text-decoration: none;
-    color: rgb(15, 15, 15);
+    color:rgb(241, 144, 18);
 }
 @media only screen and (min-width : 650px) {
 html,body{height:100%;}
