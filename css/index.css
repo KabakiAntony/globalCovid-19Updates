@@ -73,7 +73,7 @@ img{ margin-top: 10px; margin-bottom: 50px;}
     color: rgb(255, 255, 255);
     font-size: 9px;
 }
-#country-tb{width: 92.5%;table-layout: fixed;border: 1px solid rgba(221, 152, 152, 0.548);
+#country-tb{width: 90.5%;table-layout: fixed;border: 1px solid rgba(221, 152, 152, 0.548);
     border-collapse: collapse;}
 #td-confirmed-cases,#td-active-cases,#td-recoveries,#td-deaths{
     background-color:rgba(61, 72, 108, 0.507);
@@ -152,6 +152,7 @@ html,body{height:100%;}
     color: rgb(255, 255, 255);
     font-size: 15px;
 }
+#country-tb{width: 92.5%;}
 header{
     font-size: 1.4rem;
     font-weight: 500;
