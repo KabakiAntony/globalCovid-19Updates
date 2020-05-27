@@ -7,7 +7,13 @@ fetch('https://extreme-ip-lookup.com/json')
 .then(resp=>{
     if(resp.status === 'success'){
         let countryName = resp.country;
-        getCountryData(countryName.toString());
+        if (countryName.toString() === 'United States'){
+            getCountryData('US'); 
+        }
+        else{
+            getCountryData(countryName.toString());
+        }
+        
     }
     else{
         console.log(status);
