@@ -72,7 +72,7 @@ img{ margin-top: 10px; margin-bottom: 50px;}
 }
 #td-country{
     color: rgb(255, 255, 255);
-    font-size: 12px;
+    font-size: 10px;
 }
 #td-confirmed-cases,#td-active-cases,#td-recoveries,#td-deaths{
     background-color:rgba(61, 72, 108, 0.507);
