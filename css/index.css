@@ -4,7 +4,7 @@ html,body{
       padding:0;
       font-family: 'Questrial', sans-serif;
       height:100%;
-      background-color:rgba(72, 134, 176, 0.356);
+      background-color:rgba(231, 142, 142, 0.5);
 }
 #container {
     width: 100%;
@@ -58,7 +58,6 @@ font-weight: bold;
 }
 img{ margin-top: 10px; margin-bottom: 50px;}
 #confirmed-cases,#td-confirmed-cases{
-    /*color:rgba(246, 81, 101);*/
     color:rgb(241, 144, 18);
 }
 #active-cases,#td-active-cases{
@@ -74,6 +73,8 @@ img{ margin-top: 10px; margin-bottom: 50px;}
     color: rgb(255, 255, 255);
     font-size: 9px;
 }
+#country-tb{width: 92.5%;table-layout: fixed;border: 1px solid rgba(221, 152, 152, 0.548);
+    border-collapse: collapse;}
 #td-confirmed-cases,#td-active-cases,#td-recoveries,#td-deaths{
     background-color:rgba(61, 72, 108, 0.507);
     font-weight: 400;

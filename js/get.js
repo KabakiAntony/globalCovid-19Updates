@@ -23,7 +23,7 @@ function getCountryData(name){
 .then(({data,status,error})=>{
     if(status === 200){
         document.getElementById('this-country').innerHTML=`
-        <table class="holder">
+        <table id="country-tb" class="holder">
             <tr>
             <th>Country</th>
             <th>Confirmed Cases</th>
@@ -34,9 +34,7 @@ function getCountryData(name){
             </table>
         ${data.map(function(globalData){
             return `
-            <table id="data-holder">
-            <thead></thead>
-            <tbody>
+            <table id="country-tb">
             <tr>
             <td id="td-country">${globalData.country}</td>
             <td id="td-confirmed-cases">${formatNumber(globalData.confirmedCases)}</td>
@@ -44,7 +42,6 @@ function getCountryData(name){
             <td id="td-recoveries">${formatNumber(globalData.Recoveries)}</td>
             <td id="td-deaths">${formatNumber(globalData.Deaths)}</td>
             </tr>
-            </tbody>
             </table>
             `
         }).join('')}
