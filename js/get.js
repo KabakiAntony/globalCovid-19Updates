@@ -2,6 +2,63 @@ function formatNumber(num) {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
   }
 
+fetch('https://extreme-ip-lookup.com/json')
+.then(response=>response.json())
+.then(resp=>{
+    if(resp.status === 'success'){
+        let countryName = resp.country;
+        getCountryData(countryName);
+    }
+    else{
+        console.log(status);
+    }
+})
+.catch((err)=>{
+    console.log(err)
+
+});
+function getCountryData(name){
+    fetch('https://globalcovid19updates.herokuapp.com/country/'+name)
+.then(response=>response.json())
+.then(({data,status,error})=>{
+    if(status === 200){
+        document.getElementById('this-country').innerHTML=`
+        <table class="holder">
+            <tr>
+            <th>Country</th>
+            <th>Confirmed Cases</th>
+            <th>Active Cases</th>
+            <th>Recoveries</th>
+            <th>Deaths</th>
+            </tr>
+            </table>
+        ${data.map(function(globalData){
+            return `
+            <table id="data-holder">
+            <thead></thead>
+            <tbody>
+            <tr>
+            <td id="td-country">${globalData.country}</td>
+            <td id="td-confirmed-cases">${formatNumber(globalData.confirmedCases)}</td>
+            <td id="td-active-cases">${formatNumber(globalData.activeCases)}</td>
+            <td id="td-recoveries">${formatNumber(globalData.Recoveries)}</td>
+            <td id="td-deaths">${formatNumber(globalData.Deaths)}</td>
+            </tr>
+            </tbody>
+            </table>
+            `
+        }).join('')}
+        `
+        }
+    else{
+        console.log(error, status)
+    }
+})
+.catch((err)=>{
+    console.log(err)
+
+});
+}
 
 fetch('https://globalcovid19updates.herokuapp.com/global')
 .then(response=>response.json())
@@ -36,19 +93,9 @@ fetch('https://globalcovid19updates.herokuapp.com/global/summary')
 .then(({data,status,error})=>{
     if(status === 200){
         document.getElementById('show-updates').innerHTML=`
-        <table class="holder">
-            <tr>
-            <th>Country</th>
-            <th>Confirmed Cases</th>
-            <th>Active Cases</th>
-            <th>Recoveries</th>
-            <th>Deaths</th>
-            </tr>
-            </table>
         ${data.map(function(globalData){
             return `
             <table id="data-holder">
-            <thead></thead>
             <tbody>
             <tr>
             <td id="td-country">${globalData.country}</td>

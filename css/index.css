@@ -51,6 +51,15 @@ font-weight: bold;
     overflow: auto;
     background-color:rgba(61, 72, 108, 0.774);
 }
+#this-country{
+    margin:0 auto;
+    margin-top:10px;
+    width:100%;
+    padding:5px;
+    border-radius: 5px; 
+    background-color:rgba(61, 72, 108, 0.774);
+    overflow: auto;/*if this works it is a hack*/
+}
 img{ margin-top: 10px; margin-bottom: 50px;}
 #confirmed-cases,#td-confirmed-cases{
     color:rgba(246, 81, 101);
@@ -135,7 +144,12 @@ html,body{height:100%;}
 #show-updates{
     width:76%;
     float:right;
-    height: 500px;
+    height: 420px;
+}
+#this-country{
+    width:76%;
+    float:right;
+    height: auto;
 }
 #td-confirmed-cases,#td-active-cases,#td-recoveries,#td-deaths{
         font-size: 15px;    
