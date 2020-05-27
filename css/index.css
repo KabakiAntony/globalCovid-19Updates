@@ -36,6 +36,11 @@ border-radius: 5px;
 font-size: 25px;
 font-weight: bold;
 }
+.loading-text{
+    font-size: large;
+    color:rgb(18, 214, 18);
+    font-weight: normal;
+}
 #show-updates{
     margin:0 auto;
     margin-top:10px;
@@ -46,7 +51,7 @@ font-weight: bold;
     overflow: auto;
     background-color:rgba(61, 72, 108, 0.774);
 }
-img{ margin-top: 50px; margin-bottom: 50px;}
+img{ margin-top: 10px; margin-bottom: 50px;}
 #confirmed-cases,#td-confirmed-cases{
     color:rgba(246, 81, 101);
 }
