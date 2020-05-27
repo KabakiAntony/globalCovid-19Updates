@@ -1,19 +1,16 @@
-*{
-    box-sizing: border-box;
-  }
-  html,body{
+*{box-sizing: border-box;}
+html,body{
       margin:0;
       padding:0;
       font-family: 'Questrial', sans-serif;
       height:100%;
       background-color:rgba(72, 134, 176, 0.356);
-  }
-  #container {
+}
+#container {
     width: 100%;
     min-height:100%;
     position:relative;
     text-align: center;
-
 }
 h4{
     font-size: 0.8rem;
@@ -61,7 +58,8 @@ font-weight: bold;
 }
 img{ margin-top: 10px; margin-bottom: 50px;}
 #confirmed-cases,#td-confirmed-cases{
-    color:rgba(246, 81, 101);
+    /*color:rgba(246, 81, 101);*/
+    color:rgb(241, 144, 18);
 }
 #active-cases,#td-active-cases{
     color:rgba(255, 238, 0, 0.739);
@@ -74,15 +72,13 @@ img{ margin-top: 10px; margin-bottom: 50px;}
 }
 #td-country{
     color: rgb(255, 255, 255);
-    font-size: 13px;
+    font-size: 12px;
 }
 #td-confirmed-cases,#td-active-cases,#td-recoveries,#td-deaths{
     background-color:rgba(61, 72, 108, 0.507);
     font-weight: 400;
-    font-size: 13px;    
+    font-size: 12px;    
 }
-
-
 header {
     background-color:rgba(61, 72, 108, 0.774);
     height:auto;
@@ -91,12 +87,6 @@ header {
     padding:1rem;
     text-align: left;
 }
-#right{display: none;}
-  /*#float-right{
-  display: inline;
-    margin-left: 80%;
-    margin-top:0px;
-}*/
 #body{
     width: 90%;
     margin: 0 auto;
@@ -109,17 +99,20 @@ header {
     margin:0 auto;
     table-layout: fixed ;
     color:rgb(255, 255, 255);
+    text-align: left;
+    margin-left: 0px;
 }
 th{
     background-color: rgb(0, 0, 0);
     color:rgb(255, 255, 255);
-    font-size:9px;
+    font-size:10px;
     padding:8px;
+    font-weight: normal;
+    
 
 }
 td
 {
-    font-size:9px;
     text-align: left;
     padding: 5px;
     background-color:rgba(61, 72, 108, 0.507);
@@ -153,6 +146,10 @@ html,body{height:100%;}
 }
 #td-confirmed-cases,#td-active-cases,#td-recoveries,#td-deaths{
         font-size: 15px;    
+}
+#td-country{
+    color: rgb(255, 255, 255);
+    font-size: 15px;
 }
 header{
     font-size: 1.4rem;
