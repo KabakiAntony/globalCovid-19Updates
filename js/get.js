@@ -1,7 +1,4 @@
-function formatNumber(num) {
-    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-  }
-
+/* detect the users country*/
 fetch('https://extreme-ip-lookup.com/json')
 .then(response=>response.json())
 .then(resp=>{
@@ -23,6 +20,8 @@ fetch('https://extreme-ip-lookup.com/json')
     console.log(err)
 
 });
+
+/* get data for the detected country */
 function getCountryData(name){
     fetch('https://globalcovid19updates.herokuapp.com/country/'+name)
 .then(response=>response.json())
@@ -62,7 +61,7 @@ function getCountryData(name){
 
 });
 }
-
+/* get the cumulative data for the globe */
 fetch('https://globalcovid19updates.herokuapp.com/global')
 .then(response=>response.json())
 .then(({data,status,error})=>{
@@ -91,6 +90,8 @@ fetch('https://globalcovid19updates.herokuapp.com/global')
     console.log(err)
 
 });
+
+/* get all data for all countries */
 fetch('https://globalcovid19updates.herokuapp.com/global/summary')
 .then(response=>response.json())
 .then(({data,status,error})=>{
@@ -112,8 +113,6 @@ fetch('https://globalcovid19updates.herokuapp.com/global/summary')
             `
         }).join('')}
         `
-        
-
     }
     else{
         console.log(error, status)
@@ -123,3 +122,7 @@ fetch('https://globalcovid19updates.herokuapp.com/global/summary')
     console.log(err)
 
 });
+/* comma separator regex */
+function formatNumber(num) {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+}
