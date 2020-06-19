@@ -19,7 +19,9 @@ function login(signInData){
     },
     body:JSON.stringify(signInData)
 })
-.then(response => response.json())
+.then(response => {
+    return response.json();
+})
 .then(({data,status,error}) => {
     if (status === 200){
         localStorage.setItem('user',data);
